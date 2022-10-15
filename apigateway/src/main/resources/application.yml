@@ -1,0 +1,13 @@
+## Configure CORS
+
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+# Allowed origins value can be http://localhost:8181 for Single Page Application

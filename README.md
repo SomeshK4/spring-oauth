@@ -3,6 +3,7 @@
 - Web Client Sample
 - Social Login Sample
 - Okta Login Sample
+- Single Page Application Example with PKCE (Proof Key for Code Exchange)
 
 
 ## Resource Server Sample
@@ -216,3 +217,18 @@ __Step 1:__ Go to URL https://{your okta domain name}/.well-known/openid-configu
 
 __Step2:__ See if there is key named "end_session_endpoint" in json returned in Step 1. If you are able to find the key, it means that your Authorization/Authentication server supports logout.
 
+---
+
+# Single Page Application Example with PKCE
+This example demonstrates the PKCE Flow for Single Page Applications.
+
+## Prerequisites
+- Java 17
+- Keycloak
+- Discovery server application
+- ApiGateway application
+- ResourceServer application
+
+## Steps to run the application
+Open url http://localhost:8181 
+Click on the all the buttons one by one
