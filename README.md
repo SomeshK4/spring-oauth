@@ -14,12 +14,12 @@ This repository contains the  OAuth examples.
 ## Resource Server Sample
 This sample demonstrates integrating Resource Server with Keycloak.
 
-# Prerequisites
+### Prerequisites
 - Keycloak
 - Java 17
 
 
-## Steps to set up Keycloak
+### Steps to set up Keycloak
 
 - Download Keycloak from https://www.keycloak.org/downloads
 - Import realm.json placed in the root directory of the project.
@@ -32,7 +32,7 @@ This sample demonstrates integrating Resource Server with Keycloak.
     kc.bat start-dev
     ```
 
-## Get Access Token
+### Get Access Token
 
 
 As the above endpoint is secured so access token is needed to access this. Follow the steps to get access token
@@ -57,7 +57,7 @@ curl --location --request POST 'http://localhost:8080/realms/appsdeveloperblog/p
   
 ```  
 
-## Endpoints
+### Endpoints
 
 - GET user status
 ```
@@ -115,7 +115,7 @@ curl --location --request POST 'http://localhost:8080/realms/appsdeveloperblog/p
 
 
 
-## Important urls
+### Important urls
 
 - URL to access Keycloak admin console http://localhost:8080/
 - URL to access appsdeveloperblog realm http://localhost:8080/realms/appsdeveloperblog/account
@@ -131,7 +131,7 @@ curl --location --request GET 'http://localhost:8080/realms/appsdeveloperblog/pr
 ## Web Client Sample
 This sample demonstrates the web application trying to get the data from the resource server.
 
-## Prerequisites
+### Prerequisites
 1. Photo Web App Client application should be up and running.
 2. Keycloak Server should be up and running.
 3. DiscoveryServer
@@ -139,7 +139,7 @@ This sample demonstrates the web application trying to get the data from the res
 5. Always use Icongnito mode of Chrome or any other browser
 6. Keycloak
 
-## Endpoints
+### Endpoints
 
 GET http://localhost:8060/albums  - Endpoint will fetch the albums list from the album resource server running behing API Gateway which is registered with the Discovery Server.
 
@@ -148,12 +148,12 @@ GET http://localhost:8060/albums  - Endpoint will fetch the albums list from the
 ## Social Login Sample
 This sample demonstrates how a user can sign in your application using their own Google or Facebook account, besides traditional username and password login.
 
-## Prerequisites
+### Prerequisites
 - socialloginwebclient application
 - Register app with Facebook/Google
 
 
-## Get ClientId and ClientSecret for Facebook
+### Get ClientId and ClientSecret for Facebook
 __Step 1:__ Go to https://developers.facebook.com/ and login with your username and password
 
 __Step 2:__ Click on MyApps menu and then on create App button and select none.
@@ -168,7 +168,7 @@ spring.security.oauth2.client.registration.facebook.client-secret=<APP Secret>
 
 __Step 5:__ Access url http://localhost:8080 and click on the home page.
 
-## Login with Gmail
+### Login with Gmail
 __Step 1:__ Go to https://console.developers.google.com and login with your username and password
 
 __Step 2:__ Click on 'New Project' and enter unique project name
@@ -190,11 +190,11 @@ __Step 6:__ Access url http://localhost:8080 and click on the home page.
 ## Okta Login Sample
 Okta is cloud based Identity and Access Management Solution.
 
-## Prerequisites
+### Prerequisites
 - Java 17
 - SocialLoginWebClient Application
 
-## Steps to create application on Okta
+### Steps to create application on Okta
 __Step 1:__ Go to https://developer.okta.com and signup with your google account.
 
 __Step 2:__ Go to Applications menu on the left side and click "Create App Integration". Select "OIDC - OpenID Connect" and "Web Application".
@@ -203,7 +203,7 @@ __Step 3:__ Enter the name as any name you want.
 Enter Base URI and Sign-out redirect URIs as http://localhost:8080/.
 Enter Sign-in redirect URIs as http://localhost:8080/login/oauth2/code/okta. Select the option "Allow everyone in your organization to access".
 
-## Configure SocialLoginWebClient Application to sign with Okta
+### Configure SocialLoginWebClient Application to sign with Okta
 
 __Step 1:__ Following properties are needed in the application properties file
 ```
@@ -214,10 +214,10 @@ spring.security.oauth2.client.registration.okta.scope[1]=profile
 spring.security.oauth2.client.provider.okta.issuer-uri=https://<Replace with your Okta domain name>/oauth2/default
 ```
 
-## Test the application
+### Test the application
 - Run application and access url http://localhost:8080/
 
-## End session on Authentication Server i.e Okta 
+### End session on Authentication Server i.e Okta 
 __Step 1:__ Go to URL https://{your okta domain name}/.well-known/openid-configuration
 
 __Step2:__ See if there is key named "end_session_endpoint" in json returned in Step 1. If you are able to find the key, it means that your Authorization/Authentication server supports logout.
@@ -227,18 +227,18 @@ __Step2:__ See if there is key named "end_session_endpoint" in json returned in 
 ## Single Page Application Example with PKCE
 This example demonstrates the PKCE(Proof Key for Code Exchange) Flow for Single Page Applications.
 
-## Prerequisites
+### Prerequisites
 - Java 17
 - Keycloak
 - Discovery server application
 - ApiGateway application
 - ResourceServer application
 
-## Steps to run the application
+### Steps to run the application
 Open url http://localhost:8181 
 Click on the all the buttons one by one
 
-## CORS Configuration
+### CORS Configuration
 By default, the SPA application uses the CORS configuration configured in the api gateway. 
 
 If you want to run the SPA application without API Gateway, you need to change the url
