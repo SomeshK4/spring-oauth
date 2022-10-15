@@ -187,7 +187,7 @@ __Step 6:__ Access url http://localhost:8080 and click on the home page.
 
 ---
 
-# Okta Login Sample
+## Okta Login Sample
 Okta is cloud based Identity and Access Management Solution.
 
 ## Prerequisites
@@ -224,8 +224,8 @@ __Step2:__ See if there is key named "end_session_endpoint" in json returned in 
 
 ---
 
-# Single Page Application Example with PKCE
-This example demonstrates the PKCE Flow for Single Page Applications.
+## Single Page Application Example with PKCE
+This example demonstrates the PKCE(Proof Key for Code Exchange) Flow for Single Page Applications.
 
 ## Prerequisites
 - Java 17
@@ -250,4 +250,4 @@ will not work.
 
 ---
 
-# Spring Authorization Server
+## Spring Authorization Server
