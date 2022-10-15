@@ -1,9 +1,14 @@
 # OAuth 2.0
-- Resource Server Sample
-- Web Client Sample
-- Social Login Sample
-- Okta Login Sample
-- Single Page Application Example with PKCE (Proof Key for Code Exchange)
+
+This repository contains the  OAuth examples.
+
+### Table of Contents
+**[Resource Server Sample](#resource-server-sample)**<br>
+**[Web Client Sample](#web-client-sample)**<br>
+**[Social Login Sample](#social-login-sample)**<br>
+**[Okta Login Sample](#okta-login-sample)**<br>
+**[Single Page Application Example with PKCE](#single-page-application-example-with-pkce)**<br>
+**[Spring Authorization Server](#spring-authorization-server)**
 
 
 ## Resource Server Sample
@@ -123,7 +128,7 @@ curl --location --request GET 'http://localhost:8080/realms/appsdeveloperblog/pr
 ```
 ---
 
-# Web Client Sample
+## Web Client Sample
 This sample demonstrates the web application trying to get the data from the resource server.
 
 ## Prerequisites
@@ -140,7 +145,7 @@ GET http://localhost:8060/albums  - Endpoint will fetch the albums list from the
 
 ---
 
-# Social Login Sample
+## Social Login Sample
 This sample demonstrates how a user can sign in your application using their own Google or Facebook account, besides traditional username and password login.
 
 ## Prerequisites
@@ -242,3 +247,7 @@ http://localhost:8060/api/v1/users/status to http://localhost:{Random port numbe
 Both the ApiGateway and Resource server have CORS configuration, so if you want to run the application with APIGateway,
 you should comment out the CORS configuration in WebSecurity class in resource server application, otherwise the application
 will not work.
+
+---
+
+# Spring Authorization Server
