@@ -17,7 +17,7 @@ This sample demonstrates integrating Resource Server with Keycloak.
 ## Steps to set up Keycloak
 
 - Download Keycloak from https://www.keycloak.org/downloads
-- Import myrealm.json placed in the root directory of the project.
+- Import realm.json placed in the root directory of the project.
   ```
   kc.bat import --file <Path of the myrealm.json>
   ```
@@ -232,3 +232,13 @@ This example demonstrates the PKCE Flow for Single Page Applications.
 ## Steps to run the application
 Open url http://localhost:8181 
 Click on the all the buttons one by one
+
+## CORS Configuration
+By default, the SPA application uses the CORS configuration configured in the api gateway. 
+
+If you want to run the SPA application without API Gateway, you need to change the url
+http://localhost:8060/api/v1/users/status to http://localhost:{Random port number of Resourceserver} in index.html file.
+
+Both the ApiGateway and Resource server have CORS configuration, so if you want to run the application with APIGateway,
+you should comment out the CORS configuration in WebSecurity class in resource server application, otherwise the application
+will not work.
