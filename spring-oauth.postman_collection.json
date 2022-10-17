@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "aa1e3c1e-db59-40bc-82b2-3b96eb54a574",
+		"name": "spring-oauth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate with Keycloak",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/realms/appsdeveloperblog/protocol/openid-connect/auth?client_id=photo-app-code-flow-client&response_type=code&scope=profile&redirect_uri=http://localhost:8083/callback&state=adfsfdsdfdsfds",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"appsdeveloperblog",
+						"protocol",
+						"openid-connect",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "photo-app-code-flow-client"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "scope",
+							"value": "profile"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8083/callback"
+						},
+						{
+							"key": "state",
+							"value": "adfsfdsdfdsfds"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Access Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "photo-app-code-flow-client",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "v7YLLDcYnoyIXl0UxTstMjLjxxpOSFmV",
+							"type": "default"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8083/callback",
+							"type": "default"
+						},
+						{
+							"key": "scope",
+							"value": "profile",
+							"type": "default"
+						},
+						{
+							"key": "code",
+							"value": "1130b2ab-75ca-4002-9ecf-50a1a513b8b9.a69f963b-1ad1-4e26-81b4-10eec724b212.05e68438-b92c-4e98-9c0d-7c0ad4022616",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/appsdeveloperblog/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"appsdeveloperblog",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate with Spring OAuth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/oauth2/authorize?client_id=testClientId&response_type=code&scope=openid&redirect_uri=http://127.0.0.1:8080/authorized",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"oauth2",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "testClientId"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "scope",
+							"value": "openid"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8080/authorized"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token from Spring OAuth",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "testClientSecret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "testClientId",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "testClientId",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "testClientSecret",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "OgWOOeSVLbK1buaj2cEnCMV3KO5HvG6BojHpOgcroNSd4kh9iPpVf10iUvI_hsQ2iq6-1hbrpPB2m0SgwRjFgXhrPatPIFKefDBEJGzpo7DFsQnxYeyeQ6iEGx6g6Mjb",
+							"type": "default"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8080/authorized",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

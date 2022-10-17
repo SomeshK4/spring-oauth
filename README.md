@@ -251,3 +251,26 @@ will not work.
 ---
 
 ## Spring Authorization Server
+This application demonstrates the Spring Authorization Server implementation.
+
+### Prerequisites
+- Java17
+
+### Run the application
+__Step 1:__ Open the browser and enter the url 
+```
+http://localhost:8000/oauth2/authorize?client_id=testClientId&response_type=code&scope=openid&redirect_uri=http://127.0.0.1:8080/authorized
+```
+
+- Enter username/password as somesh/test
+- You will find the authorization code returned by spring authorization server in the browser with the code query parameter.
+
+__Step 2:__ Get Access token
+```
+curl --location --request POST 'http://localhost:8000/oauth2/token' \
+--header 'Authorization: Basic dGVzdENsaWVudElkOnRlc3RDbGllbnRTZWNyZXQ=' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=authorization_code' \
+--data-urlencode 'code=OgWOOeSVLbK1buaj2cEnCMV3KO5HvG6BojHpOgcroNSd4kh9iPpVf10iUvI_hsQ2iq6-1hbrpPB2m0SgwRjFgXhrPatPIFKefDBEJGzpo7DFsQnxYeyeQ6iEGx6g6Mjb' \
+--data-urlencode 'redirect_uri=http://127.0.0.1:8080/authorized'
+```
