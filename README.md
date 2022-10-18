@@ -8,7 +8,8 @@ This repository contains the  OAuth examples.
 **[Social Login Sample](#social-login-sample)**<br>
 **[Okta Login Sample](#okta-login-sample)**<br>
 **[Single Page Application Example with PKCE](#single-page-application-example-with-pkce)**<br>
-**[Spring Authorization Server](#spring-authorization-server)**
+**[Spring Authorization Server](#spring-authorization-server)**<br>
+**[Orders Resource Server](#orders-resource-server)**
 
 
 ## Resource Server Sample
@@ -273,4 +274,41 @@ curl --location --request POST 'http://localhost:8000/oauth2/token' \
 --data-urlencode 'grant_type=authorization_code' \
 --data-urlencode 'code=OgWOOeSVLbK1buaj2cEnCMV3KO5HvG6BojHpOgcroNSd4kh9iPpVf10iUvI_hsQ2iq6-1hbrpPB2m0SgwRjFgXhrPatPIFKefDBEJGzpo7DFsQnxYeyeQ6iEGx6g6Mjb' \
 --data-urlencode 'redirect_uri=http://127.0.0.1:8080/authorized'
+```
+
+---
+
+## Orders Resource Server
+This application demonstrates the use of authentication/authorization using Spring OAuth2 Authorization Server instead of Keycloak.
+
+### Prerequisites
+- Java17
+- Spring Authorization Server application
+
+### Steps to test the application
+
+__Step1:__ Run the springauthorizationserver application
+
+__Step2:__ Open your favourite browser and enter URL 
+```
+http://localhost:8000/oauth2/authorize?client_id=testClientId&response_type=code&scope=openid&redirect_uri=http://127.0.0.1:8080/authorized
+```
+
+__Step3:__ Enter username/password as somesh/test and copy the code parameter from the URL after redirect
+
+__Step4:__ Run the curl command after change the code parameter value received in Step 3.
+```
+curl --location --request POST 'http://localhost:8000/oauth2/token' \
+--header 'Authorization: Basic dGVzdENsaWVudElkOnRlc3RDbGllbnRTZWNyZXQ=' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Cookie: JSESSIONID=DD3E254CC52CD9E7F9941FA826E563E2' \
+--data-urlencode 'grant_type=authorization_code' \
+--data-urlencode 'code=8iIC5sOwaqgqPIysd0EqHejGuLoc47QPuOxZZINffcRHz17oaBymR3sbTq0HQseKSrgP08BZtM1JZ4CpHSL5lEqEE1cke45kbVveKntr6EdmYZ73Bi2kMiiO3xbWE1kv' \
+--data-urlencode 'redirect_uri=http://127.0.0.1:8080/authorized'
+```
+
+__Step5:__ Copy the access token received after the sending the above request and hit URL 
+```
+curl --location --request GET 'http://localhost:8091/api/v1/orders' \
+--header 'Authorization: Bearer eyJraWQiOiI0ZDE0OTg1My1lMWE3LTQ5OWUtOWIxZi0wYjRmMjM2MGY4ZmIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzb21lc2giLCJhdWQiOiJ0ZXN0Q2xpZW50SWQiLCJuYmYiOjE2NjYxMjIzNzEsInNjb3BlIjpbIm9wZW5pZCJdLCJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMCIsImV4cCI6MTY2NjEyMjY3MSwiaWF0IjoxNjY2MTIyMzcxfQ.DfWv6ptu-JyjhYWX66hPvyqpZWGNOAd6uuXFGbjHaw1NOpZtrW_EYxSR6YVAUliPTZHSCUUoVWCWGdU4PlOWhOkjyVGn9biixG-35ETSvghjgNFYPm5or9vn7qx4udY24sYBiJUy0S6zibkYqaOmpfoDluwY1-4BxhI-758Cs5gAc3se9EZBkDRiCetN_xd-_WWPr64DI7_FfIgNsJ_8vfubxSMyvbhekrBBwfNq1zusvvj80zR--nkTfKU9RfH4FZyhWX9obEWblN_SDrw3xYE-mjeZdBHOH5LTg-zhIBADzNRcQdAXjozrVnb4NGO4gROJtrDJ_EsXzXdrzx-IHQ'
 ```
