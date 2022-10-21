@@ -9,8 +9,8 @@ This repository contains the  OAuth examples.
 **[Okta Login Sample](#okta-login-sample)**<br>
 **[Single Page Application Example with PKCE](#single-page-application-example-with-pkce)**<br>
 **[Spring Authorization Server](#spring-authorization-server)**<br>
-**[Orders Resource Server](#orders-resource-server)**
-**[OAuth2Client for Spring Authorization Server]
+**[Orders Resource Server](#orders-resource-server)**<br>
+**[OAuth2Client for Spring Authorization Server](#oauth2client-for-spring-authorization-server)**
 
 
 ## Resource Server Sample
