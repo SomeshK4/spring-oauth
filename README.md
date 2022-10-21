@@ -331,4 +331,9 @@ change http://localhost:8000 to http://auth-server:8000
 'spring.security.oauth2.resourceserver.jwt.issuer-uri' value to http://auth-server:8000)
 
 ### Steps to test the application
-__Step 1:__ Run application
+__Step 1:__ Run springauthorizationserver, orderresourceserver and orderweboauthclient application
+
+__Step 2:__ Open browser and enter url http://localhost:8080/orders
+
+__Step 3:__ Enter username/password as somesh/test on the auth server login screen.
+__
