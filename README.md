@@ -10,6 +10,7 @@ This repository contains the  OAuth examples.
 **[Single Page Application Example with PKCE](#single-page-application-example-with-pkce)**<br>
 **[Spring Authorization Server](#spring-authorization-server)**<br>
 **[Orders Resource Server](#orders-resource-server)**
+**[OAuth2Client for Spring Authorization Server]
 
 
 ## Resource Server Sample
@@ -312,3 +313,22 @@ __Step5:__ Copy the access token received after the sending the above request an
 curl --location --request GET 'http://localhost:8091/api/v1/orders' \
 --header 'Authorization: Bearer eyJraWQiOiI0ZDE0OTg1My1lMWE3LTQ5OWUtOWIxZi0wYjRmMjM2MGY4ZmIiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzb21lc2giLCJhdWQiOiJ0ZXN0Q2xpZW50SWQiLCJuYmYiOjE2NjYxMjIzNzEsInNjb3BlIjpbIm9wZW5pZCJdLCJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMCIsImV4cCI6MTY2NjEyMjY3MSwiaWF0IjoxNjY2MTIyMzcxfQ.DfWv6ptu-JyjhYWX66hPvyqpZWGNOAd6uuXFGbjHaw1NOpZtrW_EYxSR6YVAUliPTZHSCUUoVWCWGdU4PlOWhOkjyVGn9biixG-35ETSvghjgNFYPm5or9vn7qx4udY24sYBiJUy0S6zibkYqaOmpfoDluwY1-4BxhI-758Cs5gAc3se9EZBkDRiCetN_xd-_WWPr64DI7_FfIgNsJ_8vfubxSMyvbhekrBBwfNq1zusvvj80zR--nkTfKU9RfH4FZyhWX9obEWblN_SDrw3xYE-mjeZdBHOH5LTg-zhIBADzNRcQdAXjozrVnb4NGO4gROJtrDJ_EsXzXdrzx-IHQ'
 ```
+
+---
+
+## OAuth2Client for Spring Authorization Server
+The application orderweboauthclient demonstrates the authorization_code flow with SpringAuthorizationServer.
+
+### Prerequisites
+- Java 17
+- springauthorizationserver application
+- Add an “127.0.0.1 auth-server” entry in your /etc/hosts file. 
+This allows us to run the client and the auth server on our local machine, and 
+avoids problems with session cookie overwrites between the two. When this change is done, go to 
+springauthorizationserver application and in AuthorizationServerConfiguration.java file on line 66 
+change http://localhost:8000 to http://auth-server:8000
+- OrderResourceServer application. (Change property 
+'spring.security.oauth2.resourceserver.jwt.issuer-uri' value to http://auth-server:8000)
+
+### Steps to test the application
+__Step 1:__ Run application
