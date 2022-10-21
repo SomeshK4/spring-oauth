@@ -333,7 +333,7 @@ change http://localhost:8000 to http://auth-server:8000
 ### Steps to test the application
 __Step 1:__ Run springauthorizationserver, orderresourceserver and orderweboauthclient application
 
-__Step 2:__ Open browser and enter url http://localhost:8080/orders
+__Step 2:__ Open browser and enter url http://127.0.0.1:8080/orders
 
 __Step 3:__ Enter username/password as somesh/test on the auth server login screen.
 
